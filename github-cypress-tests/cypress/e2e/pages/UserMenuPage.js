@@ -11,6 +11,9 @@ const UserMenuPage = {
     cy.url().should("include", "/logout");
   },
 
+  goToRepositories() {
+    cy.contains("a", "Repositories").click();
+  }
   
 };
 
