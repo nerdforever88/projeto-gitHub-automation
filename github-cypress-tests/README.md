@@ -1,77 +1,80 @@
-# GitHub Cypress Tests
+# Testes Automatizados do GitHub com Cypress
 
-This project contains automated tests for GitHub's authentication and repository functionality using Cypress and Jest.
+Este projeto contém testes automatizados para o GitHub, desenvolvidos com Cypress, que realizam autenticação, gerenciamento de repositórios e outras funcionalidades da plataforma.
 
-## Prerequisites
+## 🚀 Funcionalidades Testadas
 
-- Node.js (v14 or later)
-- npm (v6 or later)
-- A GitHub account
+- Login no GitHub
+- Navegação no menu do usuário
+- Criação de novos repositórios
+- Logout da aplicação
 
-## Setup
+## 🛠️ Pré-requisitos
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure your GitHub credentials:
-   - Create a `.env` file in the project root
-   - Copy the contents from `.env.example` (if available) or use this template:
-     ```
-     GITHUB_USERNAME=your_github_username
-     GITHUB_PASSWORD=your_github_password
-     GITHUB_EXPECTED_USERNAME=your_github_username
-     ```
-   - Replace the placeholder values with your actual GitHub credentials
+- Node.js (versão 14 ou superior)
+- npm (gerenciador de pacotes do Node.js)
+- Conta no GitHub para execução dos testes
 
-## Running Tests
+## 🔧 Instalação
 
-1. Open Cypress Test Runner:
-   ```bash
-   npx cypress open
-   ```
-   - Click on the test file you want to run
+1. Clone o repositório:
+```bash
+git clone <url-do-repositorio>
+cd github-cypress-tests
+```
 
-2. Run tests in headless mode:
-   ```bash
-   npx cypress run
-   ```
+2. Instale as dependências:
+```bash
+npm install
+```
 
-## Test Cases
+3. Configure as variáveis de ambiente:
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+```
+GITHUB_USERNAME=seu_usuario_github
+GITHUB_PASSWORD=sua_senha_github
+```
 
-1. **Authentication and Navigation**
-   - Verifies successful login
-   - Validates user redirection
-   - Checks username display
+## 🚦 Executando os Testes
 
-2. **Repository Interaction**
-   - Navigates to repositories
-   - Accesses a random repository
-   - Creates a new repository
-   - Takes screenshots
+Para executar todos os testes em modo interativo:
+```bash
+npx cypress open
+```
 
-3. **Logout**
-   - Tests successful logout
-   - Verifies redirection to home page
+Para executar os testes em modo headless:
+```bash
+npx cypress run
+```
 
-## Folder Structure
+## 📁 Estrutura do Projeto
 
 ```
+github-cypress-tests/
 ├── cypress/
-│   ├── e2e/                # Test files
-│   ├── fixtures/           # Test data
-│   ├── screenshots/        # Screenshots on failure
-│   ├── support/            # Custom commands and utilities
-│   └── videos/             # Video recordings of test runs
-├── img/                    # Custom screenshot directory
-├── cypress.config.js       # Cypress configuration
-└── package.json           # Project dependencies
+│   ├── e2e/
+│   │   ├── pages/         # Page Objects
+│   │   └── github.cy.js   # Casos de teste
+│   ├── fixtures/          # Dados de teste
+│   ├── screenshots/       # Capturas de tela
+│   ├── support/           # Comandos personalizados
+│   └── utils/             # Utilitários
+├── cypress.config.js      # Configuração do Cypress
+└── package.json           # Dependências e scripts
 ```
 
-## Notes
+## 📝 Dependências Principais
 
-- The test will create a new repository with a random name
-- Screenshots are saved in the `cypress/screenshots` directory
-- Videos of test runs are saved in the `cypress/videos` directory
-- Never commit your actual GitHub credentials to version control
+- Cypress ^15.7.1
+- cypress-file-upload ^5.0.8
+- dotenv ^17.2.3
+- @testing-library/cypress ^10.1.0
+
+## ⚠️ Importante
+
+- Mantenha suas credenciais seguras, nunca as compartilhe ou faça commit do arquivo `.env`
+- Recomenda-se o uso de um usuário de teste para execução dos testes
+
+## 📄 Licença
+
+Este projeto está sob a licença ISC.
